@@ -23,10 +23,10 @@ function toggleCard() {
 // Check if the device supports touch events
 if ('ontouchstart' in window) {
     // For touch devices, use click event
-    heart.addEventListener('click', toggleCard);
+    card.addEventListener('click', toggleCard);
 } else {
     // For non-touch devices, use mouse enter and leave events
-    heart.addEventListener('mouseenter', () => {
+    card.addEventListener('mouseenter', () => {
         if (!isOpen) {
             toggleCard();
         }
