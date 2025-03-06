@@ -8,9 +8,7 @@ let isOpen = false;
 function toggleCard() {
     if (!isOpen) {
         card.classList.add('open');
-        music.play().catch(error => {
-            console.error("Error playing music:", error);
-        });
+        music.play();
         isOpen = true;
     } else {
         card.classList.remove('open');
@@ -32,4 +30,9 @@ if ('ontouchstart' in window) {
         }
     });
 
-    heart.add
+    card.addEventListener('mouseleave', () => {
+        if (isOpen) {
+            toggleCard();
+        }
+    });
+}
