@@ -8,7 +8,9 @@ let isOpen = false;
 function toggleCard() {
     if (!isOpen) {
         card.classList.add('open');
-        music.play();
+        music.play().catch(error => {
+            console.error("Error playing music:", error);
+        });
         isOpen = true;
     } else {
         card.classList.remove('open');
@@ -21,7 +23,7 @@ function toggleCard() {
 // Check if the device supports touch events
 if ('ontouchstart' in window) {
     // For touch devices, use click event
-    heart.addEventListener('touch', toggleCard);
+    heart.addEventListener('click', toggleCard);
 } else {
     // For non-touch devices, use mouse enter and leave events
     heart.addEventListener('mouseenter', () => {
@@ -30,9 +32,4 @@ if ('ontouchstart' in window) {
         }
     });
 
-    heart.addEventListener('mouseleave', () => {
-        if (isOpen) {
-            toggleCard();
-        }
-    });
-}
+    heart.add
