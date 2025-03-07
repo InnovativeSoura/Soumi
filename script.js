@@ -2,7 +2,7 @@ const heart = document.getElementById('heart');
 const card = document.getElementById('card');
 const music = document.getElementById('music');
 
-let isOpen = false;
+let isOpen = true;
 
 // Function to handle opening and closing the card
 function toggleCard() {
